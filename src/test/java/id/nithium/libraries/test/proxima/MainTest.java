@@ -1,6 +1,6 @@
-package id.nithium.lib.test.proxima;
+package id.nithium.libraries.test.proxima;
 
-import id.nithium.lib.proxima.Proxima;
+import id.nithium.libraries.proxima.Proxima;
 
 import java.util.logging.Logger;
 

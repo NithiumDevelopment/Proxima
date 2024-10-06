@@ -1,4 +1,4 @@
-package id.nithium.lib.proxima;
+package id.nithium.libraries.proxima;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -9,6 +9,14 @@ import java.util.logging.LogRecord;
 
 public class ProximaFormatter extends Formatter {
     private DateFormat dateFormat = new SimpleDateFormat(System.getProperty("id.nithium.log-date-format", "HH:mm:ss"));
+    private String prefix;
+
+    public ProximaFormatter() {
+    }
+
+    public ProximaFormatter(String prefix) {
+        this.prefix = prefix;
+    }
 
     @Override
     public String format(LogRecord record) {
@@ -16,6 +24,11 @@ public class ProximaFormatter extends Formatter {
 
         stringBuilder.append(dateFormat.format(record.getMillis()));
         stringBuilder.append(" [" + record.getSourceClassName() + "." + record.getSourceMethodName() +"]");
+
+        if (prefix != null) {
+            stringBuilder.append(" [" + prefix + "]");
+        }
+
         stringBuilder.append(" [" + record.getLevel().getLocalizedName() + "]: ");
         stringBuilder.append(formatMessage(record));
         stringBuilder.append('\n');

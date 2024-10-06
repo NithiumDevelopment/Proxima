@@ -1,4 +1,4 @@
-package id.nithium.lib.proxima;
+package id.nithium.libraries.proxima;
 
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Handler;
@@ -9,10 +9,14 @@ public class Proxima {
     private static final ConsoleHandler consoleHandler = new ConsoleHandler();
 
     public static Logger getLogger() {
+        return getLogger(null);
+    }
+
+    public static Logger getLogger(String prefix) {
         for (Handler handler : logger.getHandlers()) {
             if (handler != consoleHandler) {
                 logger.removeHandler(logger.getHandlers()[0]);
-                consoleHandler.setFormatter(new ProximaFormatter());
+                consoleHandler.setFormatter(new ProximaFormatter(prefix));
                 logger.addHandler(consoleHandler);
             }
         }
