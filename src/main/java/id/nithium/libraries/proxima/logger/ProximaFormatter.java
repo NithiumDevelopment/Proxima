@@ -1,4 +1,4 @@
-package id.nithium.libraries.proxima;
+package id.nithium.libraries.proxima.logger;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;

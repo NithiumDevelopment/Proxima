@@ -1,5 +1,7 @@
 package id.nithium.libraries.proxima;
 
+import id.nithium.libraries.proxima.logger.ProximaFormatter;
+
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Handler;
 import java.util.logging.Logger;
